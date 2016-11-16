@@ -590,6 +590,8 @@
       if (arguments && arguments.length && (typeof arguments[0] === 'string' || arguments[0] instanceof Date)) {
         date = arguments[0];
         fromArgs = true;
+      } else if(this.isVisible) {
+          date = this.viewDate;
       } else {
         date = (this.isInput ? this.element.val() : this.element.find('input').val()) || this.element.data('date') || this.initialDate;
         if (typeof date == 'string' || date instanceof String) {
